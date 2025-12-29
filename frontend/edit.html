@@ -19,7 +19,7 @@
   <script>
     const id = new URLSearchParams(window.location.search).get("id");
 
-    fetch("http://localhost:3000/tasks")
+    fetch("https://task-manager-vh8o.onrender.com/tasks")
       .then(res => res.json())
       .then(tasks => {
         const task = tasks.find(t => t.id == id);
@@ -33,7 +33,7 @@
       });
 
     function updateTask() {
-      fetch('http://localhost:3000/tasks/${id}', {
+      fetch('https://task-manager-vh8o.onrender.com/tasks/${id}', {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
