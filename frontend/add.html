@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Task</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- STEP 2: Container -->
+  <div class="container">
+    <h2>Add Task</h2>
+
+    <input id="title" placeholder="Title">
+    <textarea id="desc" placeholder="Description"></textarea>
+
+    <button class="primary-btn" onclick="addTask()">Save</button>
+  </div>
+
+  <script>
+    function addTask() {
+      fetch("http://localhost:3000/tasks", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: document.getElementById("title").value,
+          description: document.getElementById("desc").value
+        })
+      }).then(() => {
+        window.location.href = "index.html";
+      });
+    }
+  </script>
+</body>
+</html>
