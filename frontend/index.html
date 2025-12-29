@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- STEP 2: Container -->
+  <div class="container">
+    <h2>Task Manager</h2>
+
+    <a href="add.html">+ Add Task</a>
+
+    <ul id="taskList"></ul>
+  </div>
+
+  <script>
+    fetch("http://localhost:3000/tasks")
+      .then(res => res.json())
+      .then(data => {
+        const list = document.getElementById("taskList");
+        list.innerHTML = "";
+
+        data.forEach(task => {
+          const li = document.createElement("li");
+          li.innerHTML = `
+            <span>
+              <b>${task.title}</b><br>
+              ${task.description}
+            </span>
+            <span>
+              <button class="edit-btn" onclick="editTask(${task.id})">Edit</button>
+              <button class="delete-btn" onclick="deleteTask(${task.id})">Delete</button>
+            </span>
+          `;
+          list.appendChild(li);
+        });
+      });
+
+    function deleteTask(id) {
+      fetch(`http://localhost:3000/tasks/${id}`, {
+        method: "DELETE"
+      }).then(() => location.reload());
+    }
+
+    function editTask(id) {
+      window.location.href = `edit.html?id=${id}`;
+    }
+  </script>
+</body>
+</html>
