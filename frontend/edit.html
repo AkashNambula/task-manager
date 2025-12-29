@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Task</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- STEP 2: Container -->
+  <div class="container">
+    <h2>Edit Task</h2>
+
+    <input id="title" placeholder="Title">
+    <textarea id="desc" placeholder="Description"></textarea>
+
+    <button class="primary-btn" onclick="updateTask()">Update</button>
+  </div>
+
+  <script>
+    const id = new URLSearchParams(window.location.search).get("id");
+
+    fetch("http://localhost:3000/tasks")
+      .then(res => res.json())
+      .then(tasks => {
+        const task = tasks.find(t => t.id == id);
+        if (!task) {
+          alert("Task not found");
+          return;
+        }
+
+        document.getElementById("title").value = task.title;
+        document.getElementById("desc").value = task.description;
+      });
+
+    function updateTask() {
+      fetch('http://localhost:3000/tasks/${id}', {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          title: document.getElementById("title").value,
+          description: document.getElementById("desc").value
+        })
+      }).then(() => {
+        window.location.href = "index.html";
+      });
+    }
+  </script>
+</body>
+</html>
