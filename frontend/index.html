@@ -16,7 +16,7 @@
   </div>
 
   <script>
-    fetch("http://localhost:3000/tasks")
+    fetch("https://task-manager-vh8o.onrender.com")
       .then(res => res.json())
       .then(data => {
         const list = document.getElementById("taskList");
@@ -39,7 +39,7 @@
       });
 
     function deleteTask(id) {
-      fetch(`http://localhost:3000/tasks/${id}`, {
+      fetch(`https://task-manager-vh8o.onrender.com/tasks/${id}`, {
         method: "DELETE"
       }).then(() => location.reload());
     }
