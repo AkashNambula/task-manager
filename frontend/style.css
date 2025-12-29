@@ -1,0 +1,174 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* ===== PAGE BACKGROUND ===== */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e5e7eb;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.container {
+  background: #111827;
+  width: 420px;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== TITLE ===== */
+.container h2 {
+  text-align: center;
+  margin-bottom: 22px;
+  color: #38bdf8;
+  letter-spacing: 1px;
+}
+
+/* ===== ADD TASK LINK ===== */
+.container a {
+  display: block;
+  text-align: center;
+  margin-bottom: 18px;
+  padding: 12px;
+  background: #22c55e;
+  color: #022c22;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.container a:hover {
+  background: #16a34a;
+}
+
+/* ===== TASK LIST ===== */
+#taskList {
+  list-style: none;
+}
+
+/* ===== TASK ITEM ===== */
+#taskList li {
+  background: #1f2933;
+  padding: 16px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#taskList li:hover {
+  transform: scale(1.02);
+  background: #243244;
+}
+
+/* ===== TASK TEXT ===== */
+#taskList li span:first-child {
+  max-width: 65%;
+  word-wrap: break-word;
+}
+
+#taskList li b {
+  display: block;
+  margin-bottom: 4px;
+  color: #facc15;
+}
+
+/* ===== BUTTONS (COMMON) ===== */
+button {
+  border: none;
+  padding: 7px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* ===== EDIT BUTTON ===== */
+.edit-btn {
+  background: #38bdf8;
+  color: #082f49;
+  margin-right: 6px;
+}
+
+.edit-btn:hover {
+  background: #0ea5e9;
+}
+
+/* ===== DELETE BUTTON ===== */
+.delete-btn {
+  background: #ef4444;
+  color: #450a0a;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
+
+/* ===== PRIMARY BUTTON (ADD / UPDATE) ===== */
+.primary-btn {
+  width: 100%;
+  background: #2563eb;
+  color: #e5e7eb;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.primary-btn:hover {
+  background: #1d4ed8;
+}
+
+/* ===== FORM INPUTS (FIXED SPACING & COLORS) ===== */
+input,
+textarea {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background-color: #020617;
+  color: #e5e7eb;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Placeholder */
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af;
+}
+
+/* Focus state */
+input:focus,
+textarea:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25);
+}
+
+/* Textarea height */
+textarea {
+  resize: none;
+  min-height: 110px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .container {
+    width: 92%;
+  }
+}
